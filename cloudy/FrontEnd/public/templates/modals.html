@@ -1,0 +1,178 @@
+<!-- Sign Up Window -->
+<div class="modal" id="modal0">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Sign Up</p>
+        <button class="delete" aria-label="close" data-bulma-modal="close" onclick="CloseModals('modal0')"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" ng-model="formData.name" ng-blur="isSignUpDisabled()" placeholder="Input your real name">
+            </div>
+          </div>
+          
+
+
+         
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input class="input" type="text" ng-model="formData.username" placeholder="Choose username">
+            </div>
+          </div>
+          <div class="notification is-danger" ng-show="showUsernameWarn()">
+            Username not valid.
+          </div>
+
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input class="input" type="text" ng-model="formData.email" placeholder="Input your e-mail">
+            </div>
+          </div>
+          <div class="notification is-danger" ng-show="showEmailWarn()">
+            Email not valid.
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input class="input" type="password" ng-model="formData.password" placeholder="Password">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Password Confirmation</label>
+            <div class="control">
+              <input class="input" type="password" ng-model="formData.confirmPassword" placeholder="Confirm your password">
+            </div>
+          </div>
+          <div class="notification is-danger" ng-show="showPasswordWarn()">
+            Passwords do not match.
+          </div>
+          
+          <div class="field">
+            <label class="label">Gender</label>
+            <div class="control">
+              <div class="select">
+                <select ng-model="formData.gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox">
+                I agree to the <a href="#">terms and conditions</a>
+              </label>
+            </div>
+          </div>
+          
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success is-danger" ng-click="register()" ng-disabled="isSignUpDisabled()" >Sign Up</button>
+        <button class="button" data-bulma-modal="close" onclick="CloseModals('modal0')">Cancel</button>
+      </footer>
+    </div>
+</div>
+
+<!-- Log In Window --> 
+<div class="modal" id="modal1">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Log In</p>
+        <button class="delete" aria-label="close" data-bulma-modal="close" onclick="CloseModals('modal1')"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input class="input" type="text" ng-model="formData.username" placeholder="Username">
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input class="input" type="password" ng-model="formData.password" placeholder="Password">
+            </div>
+          </div>
+          <div class="notification is-danger" ng-show="showLoginWarn">
+            Username or Password are not valid.
+          </div>
+          
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success is-danger" ng-click="login()">Log In</button>
+        <button class="button" data-bulma-modal="close" onclick="CloseModals('modal1')">Cancel</button>
+      </footer>
+    </div>
+</div>
+
+
+
+<!--Image Modal-->
+<div class="modal" id="modal2">
+  <header class="modal-card-head">
+    <button class="delete" aria-label="close" data-bulma-modal="close" onclick="CloseModals('modal2')"></button>
+  </header>
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    
+    <p class="image is-16by9">
+      <img src="{{image.url}}">
+    </p>
+
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+
+<!-- AddPicture Window --> 
+<div class="modal" id="modal3"ng-controller="UploadCtrl">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Add picture</p>
+      <button class="delete" aria-label="close" data-bulma-modal="close" onclick="CloseModals('modal3')"></button>
+    </header>
+    <section class="modal-card-body">
+        <div class="field">
+          <label class="label">Description</label>
+          <div class="control">
+            <textarea class="textarea" type="text" ng-model="description" maxlength="1000" placeholder="Write the description here"></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <div class="container">
+            <div >
+             <form name="uploadForm" ng-submit="upload()">
+               <h3>File Uploader</h3>
+               <div class="input-group">
+                 <input onchange="angular.element(this).scope().onChange(this.files)" class="form-control" type="file" />
+                 <div class="input-group-btn">
+                   <button class="btn btn-default" type="submit">Upload</button>
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+        </div>
+        
+        
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" data-bulma-modal="close" onclick="CloseModals('modal3')">Cancel</button>
+    </footer>
+  </div>
+</div>

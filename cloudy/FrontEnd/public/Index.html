@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app1">
+<head>
+   
+    <meta charset="UTF-8">
+    <title>MicroPinterest</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>     
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase-storage.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-datatables/0.6.2/angular-datatables.min.js"></script>
+    <script src="./main/app.js"></script>
+    <script src="./main/index.js"></script>
+    <script src="./main/modal.js"></script>
+    <script src="./main/registrationLoginForms.js"></script>
+    <script src="./main/uploadController.js" ></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <link rel="icon" href="./Resources/micropinterest.png">
+    
+    
+</head>
+<body ng-controller ="ctrl1" ng-init="getAllPictures(); getCurrentUser()">
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyA37SYYuuCuUmNeN8txHDIl9wXlgz5YzQU",
+        authDomain: "micropinterestfb.firebaseapp.com",
+        projectId: "micropinterestfb",
+        storageBucket: "micropinterestfb.appspot.com",
+        messagingSenderId: "790691001509",
+        appId: "1:790691001509:web:4767778b7312013ae5894c",
+        measurementId: "G-XNYCKBSG1H"
+    };
+    firebase.initializeApp(firebaseConfig);
+    console.log(firebase)
+    </script>
+    
+    
+
+    <ng-include src="getNavBar()"></ng-include>
+    <ng-include src="getCurrentView()"></ng-include>
+    <ng-include ng-controller="formCtrl" src="getModalTemplate()"></ng-include>
+
+</body>
+
+</html>

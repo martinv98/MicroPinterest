@@ -1,0 +1,41 @@
+<section class="section cards" >
+    <div class="container">
+        <div class="columns is-multiline">
+
+            <div class= "column is-one-third" ng-repeat="picture in pictures track by $index" ng-init="getAllPictures()">
+                <div class="card">
+                    
+                        <div class="card-image">
+                        <figure class="image is-4by3">
+                                <img id="{{$index}}" ng-click="updateImage(picture)" src="{{getImgUrl(picture, $index)}}" alt="Placeholder image">
+                        </figure>
+                        </div>
+                        
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                
+                                </div>
+                                <div class="media-content">
+                                <p class="title is-4">Added by: {{picture.author}}</p>
+                                </div>
+                            </div>
+                        
+                            <div class="content">
+                                <div class="media-left">
+                                    {{picture.description}}
+                                    <br>
+                                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                                </div>
+                                <div class="media-content" ng-show="isDeleteVisible(picture)">
+                                    <button class="button is-danger" ng-click="deleteImg(picture)">Delete</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>                  
+        </div>
+    </div>
+</section>
